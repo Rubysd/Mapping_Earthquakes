@@ -7,7 +7,7 @@ let cityData = cities;
 //let map = L.map('mymap').setView([36.1733, -120.1794],7); 
 
 // Create the map object with center at the San Francisco airport.
-let map = L.map('mymap').setView([30.1975, -97.6664], 5);
+let map = L.map('mymap').setView([30.1975, -97.6664], 4);
 
 // Coordinates for each point to be used in the line.
 /* let line = [
