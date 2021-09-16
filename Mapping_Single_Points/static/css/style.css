@@ -1,0 +1,16 @@
+html,
+body,
+#mymap {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#menu {
+    position: absolute;
+    background: #efefef;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}    
+
