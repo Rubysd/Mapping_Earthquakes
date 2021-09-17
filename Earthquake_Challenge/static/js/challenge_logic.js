@@ -16,7 +16,7 @@ let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/sate
 });
 
 // Create the map object with center, zoom level and default layer.
-let map = L.map('mapid', {
+let map = L.map('mymap', {
 	center: [40.7, -94.5],
 	zoom: 3,
 	layers: [streets]
@@ -30,11 +30,13 @@ let baseMaps = {
 
 // 1. Add a 2nd layer group for the tectonic plate data.
 let allEarthquakes = new L.LayerGroup();
+let tectonic = new L.LayerGroup();
 
 
 // 2. Add a reference to the tectonic plates group to the overlays object.
 let overlays = {
-  "Earthquakes": allEarthquakes
+  "Earthquakes": allEarthquakes,
+  "Tectonic Plates": tectonic
 };
 
 // Then we add a control to the map that will allow the user to change which
@@ -139,9 +141,26 @@ legend.onAdd = function() {
   // Finally, we our legend to the map.
   legend.addTo(map);
 
+// Create a style for the lines.
+let myStyle = {
+  color: "blue",
+  fill:false,
+  weight: 1
+
+}
 
   // 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
-  d3.json().then(() {
+  d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json").then(function(data) {
+
+    // Creating a GeoJSON layer with the retrieved data.
+    L.geoJson(data, {
+      // We set the style for each circleMarker using our styleInfo function.
+      style: myStyle,
     
+    }).addTo(tectonic);
+
+    // Adding the earthquake layer to the map
+    tectonic.addTo(map);
   });
 });
+
