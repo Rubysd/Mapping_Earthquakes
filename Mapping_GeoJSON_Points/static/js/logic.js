@@ -6,8 +6,8 @@ let cityData = cities;
 // Create the map object with a center and zoom level.
 //let map = L.map('mymap').setView([36.1733, -120.1794],7); 
 
-// Create the map object with center at the San Francisco airport.
-let map = L.map('mymap').setView([37.5, -122.5],10);
+// Create the map object with center and zoom level.
+let map = L.map('mapid').setView([30, 30], 2);
 
 // Add GeoJSON data.
 let sanFranAirport =
