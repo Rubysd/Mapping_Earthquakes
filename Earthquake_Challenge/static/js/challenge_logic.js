@@ -22,6 +22,7 @@ let dark = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{
 	accessToken: API_KEY
 });
 
+// Delivery 3
 // Create the map object with center, zoom level and default layer.
 let map = L.map('mymap', {
 	center: [40.7, -94.5],
@@ -33,6 +34,7 @@ let map = L.map('mymap', {
 let baseMaps = {
   "Streets": streets,
   "Satellite": satelliteStreets,
+  // Delivery 3
   "Dark": dark
 };
 
